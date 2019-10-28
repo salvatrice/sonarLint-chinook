@@ -63,17 +63,17 @@ public class AlbumDto {
 		if (artistName == null) {
 			if (other.artistName != null)
 				return false;
-			} else if (!artistName.equals(other.artistName))
+		} else if (!artistName.equals(other.artistName))
 			return false;
 		if (genre == null) {
 			if (other.genre != null)
 				return false;
-			} else if (!genre.equals(other.genre))
+		} else if (!genre.equals(other.genre))
 			return false;
 		if (title == null) {
 			if (other.title != null)
 				return false;
-			} else if (!title.equals(other.title))
+		} else if (!title.equals(other.title))
 			return false;
 		return true;
 	}	

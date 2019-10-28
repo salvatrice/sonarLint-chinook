@@ -44,7 +44,7 @@ public class AlbumController {
 			}
 		} catch(Exception e) {
 			dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, unexpectedException);
-			Log.trace("Hello Trace", e); // = e.printStackTrace();
+			Log.trace("Hello Trace1", e); // = e.printStackTrace();
 			
 		}
 		
@@ -66,7 +66,7 @@ public class AlbumController {
 			}
 		} catch(Exception e) {
 			dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, unexpectedException);
-			Log.trace("Hello Trace", e);
+			Log.trace("Hello Trace2", e);
 		}
 		
 		return ResponseEntity.ok(dto);
@@ -87,7 +87,7 @@ public class AlbumController {
 			}
 		} catch(Exception e) {
 			dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, unexpectedException);
-			Log.trace("Hello Trace", e);
+			Log.trace("Hello Trace3", e);
 		}
 		
 		return ResponseEntity.ok(dto);
