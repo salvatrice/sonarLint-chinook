@@ -35,7 +35,7 @@ public class AlbumController {
 
 		ResponseDto<List<AlbumDto>> dto = null;
 		try {
-			List<AlbumDto> album = repository.FindAllAlbums();
+			List<AlbumDto> album = repository.findAllAlbums();
 			if (album == null) {
 				dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, albumNotFound);
 			} else {

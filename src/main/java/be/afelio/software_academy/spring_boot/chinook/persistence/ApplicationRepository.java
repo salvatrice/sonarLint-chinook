@@ -27,16 +27,16 @@ public class ApplicationRepository {
 	@Autowired
 	TrackRepository trackRepository;
 
-	public List<AlbumDto> FindAllAlbums() {
+	public List<AlbumDto> findAllAlbums() {
 		List<AlbumEntity> list = albumRepository.findAll();
 		return createAlbumDto(list);
 	}
 
 	private List<AlbumDto> createAlbumDto(List<AlbumEntity> entity) {
-		List<AlbumDto> list = new ArrayList<AlbumDto>();
+		List<AlbumDto> list = new ArrayList<>();
 
 		for (AlbumEntity elm : entity) {
-			List<String> genre = new ArrayList<String>();
+			List<String> genre = new ArrayList<>();
 			for (TrackEntity track : elm.getTrackList()) {
 				String s = track.getGenre().getGenreName();
 				if (!genre.contains(s))
@@ -54,11 +54,11 @@ public class ApplicationRepository {
 
 	public List<AlbumDto> findAllAlbumByGenre(String name) {
 		List<AlbumEntity> listAlbumEntity = albumRepository.findAll();
-		List<AlbumDto> listGoodAlbumDto = new ArrayList<AlbumDto>();
+		List<AlbumDto> listGoodAlbumDto = new ArrayList<>();
 
 		for (AlbumEntity albumEntity : listAlbumEntity) {
 			List<TrackEntity> trackEntities = albumEntity.getTrackList();
-			Set<String> genres = new HashSet<String>();
+			Set<String> genres = new HashSet<>();
 			boolean good = false;
 			for (TrackEntity track : trackEntities) {
 				GenreEntity genreEntity = track.getGenre();
@@ -71,7 +71,7 @@ public class ApplicationRepository {
 				AlbumDto albumDto = new AlbumDto();
 				albumDto.setTitle(albumEntity.getTitle());
 				albumDto.setArtistName(albumEntity.getArtist().getName());
-				List<String> genresAsList = new ArrayList<String>(genres);
+				List<String> genresAsList = new ArrayList<>(genres);
 				albumDto.setGenre(genresAsList);
 				listGoodAlbumDto.add(albumDto);
 			}
@@ -85,7 +85,7 @@ public class ApplicationRepository {
 	}
 
 	private List<TrackDto> createTrackDto(List<TrackEntity> entity) {
-		List<TrackDto> list = new ArrayList<TrackDto>();
+		List<TrackDto> list = new ArrayList<>();
 
 		for (TrackEntity trackEntity : entity) {
 			TrackDto trackDto = new TrackDto();
