@@ -6,11 +6,6 @@ public class ArtistDto {
 	
 	
 	public ArtistDto() {}
-	
-	public ArtistDto(String title) {
-		super();
-		this.name = name;
-	}
 
 	public String getName() {
 		return name;

@@ -22,7 +22,6 @@ import be.afelio.software_academy.spring_boot.chinook.persistence.ApplicationRep
 @RequestMapping(value="album")
 public class AlbumController {
 	
-	// pour remplacer e.printStackTrace();
 	private static final Logger Log = LoggerFactory.getLogger(AlbumController.class);
 	
 	String albumNotFound = "Album not found";
