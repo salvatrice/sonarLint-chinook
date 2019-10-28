@@ -5,7 +5,9 @@ public class ArtistDto {
 	String name;
 	
 	
-	public ArtistDto() {}
+	public ArtistDto() {
+		
+	}
 
 	public String getName() {
 		return name;
