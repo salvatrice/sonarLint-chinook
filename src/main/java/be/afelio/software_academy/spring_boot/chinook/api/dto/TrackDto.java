@@ -1,10 +1,5 @@
 package be.afelio.software_academy.spring_boot.chinook.api.dto;
 
-import java.util.List;
-
-import be.afelio.software_academy.spring_boot.chinook.persistence.entities.AlbumEntity;
-import be.afelio.software_academy.spring_boot.chinook.persistence.entities.ArtistEntity;
-
 public class TrackDto {
 
 	String name;
