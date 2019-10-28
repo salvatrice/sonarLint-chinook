@@ -33,7 +33,7 @@ public class TrackController {
 		try {
 			List<TrackDto> track = repository.findAllTracksByAlbum(albumName);
 			if (track == null) {
-				dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, "album not found");
+				dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, "artist not found");
 			} else {
 				dto = new ResponseDto<>(ResponseDtoStatus.SUCCESS, track.size() + " tracks found");
 				dto.setPayload(track);

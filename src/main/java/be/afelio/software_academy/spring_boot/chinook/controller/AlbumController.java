@@ -24,23 +24,26 @@ public class AlbumController {
 	
 	// pour remplacer e.printStackTrace();
 	private static final Logger Log = LoggerFactory.getLogger(AlbumController.class);
+	
+	String albumNotFound = "Album not found";
+	String unexpectedException = "unexpected exception";
 
 	@Autowired ApplicationRepository repository;
 	
 	@GetMapping(produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ResponseDto<List<AlbumDto>>> FindAllAlbums() {
+	public ResponseEntity<ResponseDto<List<AlbumDto>>> findAllAlbums() {
 
 		ResponseDto<List<AlbumDto>> dto = null;
 		try {
 			List<AlbumDto> album = repository.FindAllAlbums();
 			if (album == null) {
-				dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, "album not found");
+				dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, albumNotFound);
 			} else {
 				dto = new ResponseDto<>(ResponseDtoStatus.SUCCESS, "ok");
 				dto.setPayload(album);
 			}
 		} catch(Exception e) {
-			dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, "unexpected exception");
+			dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, unexpectedException);
 			Log.trace("Hello Trace", e); // = e.printStackTrace();
 			
 		}
@@ -56,13 +59,13 @@ public class AlbumController {
 		try {
 			List<AlbumDto> album = repository.findAllAlbumByArtist(name);
 			if (album == null) {
-				dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, "album not found");
+				dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, albumNotFound);
 			} else {
 				dto = new ResponseDto<>(ResponseDtoStatus.SUCCESS, "ok");
 				dto.setPayload(album);
 			}
 		} catch(Exception e) {
-			dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, "unexpected exception");
+			dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, unexpectedException);
 			Log.trace("Hello Trace", e);
 		}
 		
@@ -77,13 +80,13 @@ public class AlbumController {
 		try {
 			List<AlbumDto> album = repository.findAllAlbumByGenre(genreName);
 			if (album == null) {
-				dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, "album not found");
+				dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, albumNotFound);
 			} else {
 				dto = new ResponseDto<>(ResponseDtoStatus.SUCCESS, album.size() + " albums found");
 				dto.setPayload(album);
 			}
 		} catch(Exception e) {
-			dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, "unexpected exception");
+			dto = new ResponseDto<>(ResponseDtoStatus.FAILURE, unexpectedException);
 			Log.trace("Hello Trace", e);
 		}
 		
